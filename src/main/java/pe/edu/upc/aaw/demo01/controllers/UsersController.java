@@ -47,4 +47,11 @@ public class UsersController {
         return dto;
     }
 
+    @PutMapping
+    public void modificar(@RequestBody UsersDTO dto){
+        ModelMapper m=new ModelMapper();
+        Users c=m.map(dto,Users.class);
+        usS.insert(c);
+    }
+
 }
