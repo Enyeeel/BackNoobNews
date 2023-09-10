@@ -47,4 +47,11 @@ public class ConfigurationController {
         ConfigurationDTO dto=m.map(conS.listId(id), ConfigurationDTO.class);
         return dto;
     }
+
+    @PutMapping
+    public void modificar(@RequestBody ConfigurationDTO dto){
+        ModelMapper m=new ModelMapper();
+        Configuration c=m.map(dto,Configuration.class);
+        conS.insert(c);
+    }
 }
