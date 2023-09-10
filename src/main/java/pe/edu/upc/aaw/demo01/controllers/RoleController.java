@@ -46,7 +46,12 @@ public class RoleController {
         return dto;
     }
 
-
+    @PutMapping
+    public void modificar(@RequestBody RoleDTO dto){
+        ModelMapper m=new ModelMapper();
+        Role c=m.map(dto,Role.class);
+        rU.insert(c);
+    }
 
 
 }
