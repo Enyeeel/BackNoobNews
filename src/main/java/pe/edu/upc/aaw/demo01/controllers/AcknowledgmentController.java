@@ -47,4 +47,11 @@ public class AcknowledgmentController {
         AcknowledgmentDTO dto=m.map(ackC.listId(id), AcknowledgmentDTO.class);
         return dto;
     }
+
+    @PutMapping
+    public void modificar(@RequestBody AcknowledgmentDTO dto){
+        ModelMapper m=new ModelMapper();
+        Acknowledgment c=m.map(dto,Acknowledgment.class);
+        ackC.insert(c);
+    }
 }
