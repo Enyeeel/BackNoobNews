@@ -47,4 +47,11 @@ public class CategoryController {
         CategoryDTO dto=m.map(catS.listId(id), CategoryDTO.class);
         return dto;
     }
+
+     @PutMapping
+    public void modificar(@RequestBody CategoryDTO dto){
+        ModelMapper m=new ModelMapper();
+        Category c=m.map(dto,Category.class);
+        catS.insert(c);
+    }
 }
