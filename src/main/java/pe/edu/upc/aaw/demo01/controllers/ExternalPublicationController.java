@@ -47,4 +47,11 @@ public class ExternalPublicationController {
         ExternalPublicationDTO dto=m.map(extP.listId(id), ExternalPublicationDTO.class);
         return dto;
     }
+
+    @PutMapping
+    public void modificar(@RequestBody ExternalPublicationDTO dto){
+        ModelMapper m=new ModelMapper();
+        ExternalPublication c=m.map(dto,ExternalPublication.class);
+        extP.insert(c);
+    }
 }
