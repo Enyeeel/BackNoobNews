@@ -50,4 +50,11 @@ public class InteractionController {
         return dto;
     }
 
+    @PutMapping
+    public void modificar(@RequestBody InteractionDTO dto){
+        ModelMapper m=new ModelMapper();
+        Interaction c=m.map(dto,Interaction.class);
+        iS.insert(c);
+    }
+
 }
