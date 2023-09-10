@@ -47,4 +47,11 @@ public class ConnectedDeviceController {
         ConnectedDeviceDTO dto=m.map(connD.listId(id), ConnectedDeviceDTO.class);
         return dto;
     }
+
+    @PutMapping
+    public void modificar(@RequestBody ConnectedDeviceDTO dto){
+        ModelMapper m=new ModelMapper();
+        ConnectedDevice c=m.map(dto,ConnectedDevice.class);
+        connD.insert(c);
+    }
 }
