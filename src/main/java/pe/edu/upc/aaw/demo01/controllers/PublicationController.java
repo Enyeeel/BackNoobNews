@@ -43,6 +43,11 @@ public class PublicationController {
         PublicationDTO dto=m.map(pS.listId(id), PublicationDTO.class);
         return dto;
     }
-
-
+    
+    @PutMapping
+    public void modificar(@RequestBody PublicationDTO dto){
+        ModelMapper m=new ModelMapper();
+        Publication c=m.map(dto,Publication.class);
+        pS.insert(c);
+    }
 }
