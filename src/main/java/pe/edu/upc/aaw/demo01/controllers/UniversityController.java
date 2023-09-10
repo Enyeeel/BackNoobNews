@@ -32,4 +32,10 @@ public class UniversityController {
         }).collect(Collectors.toList());
     }
 
+    @PutMapping
+    public void modificar(@RequestBody UniversityDTO dto){
+        ModelMapper m=new ModelMapper();
+        University c=m.map(dto,University.class);
+        uS.insert(c);
+    }
 }
